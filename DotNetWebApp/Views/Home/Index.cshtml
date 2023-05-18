@@ -1,11 +1,9 @@
-﻿@page
-@using DotNetWebApp.Views.Home;
-@model IndexModel
+﻿
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Riddle Server</h1>
-    <p>The foremost authority for good riddles that be found anywhere on the local host <a></a>.</p>
+    <p>The foremost authority for good riddles that can be found anywhere on the local host <a href="@Url.Action("Privacy", "Home")">Privacy</a>.</p>
 </div>
