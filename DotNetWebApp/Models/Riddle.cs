@@ -11,5 +11,10 @@ namespace DotNetWebApp.Models
         public int Id { get; set; }
         public String RiddleQuestion { get; set; }
         public string RiddleAnswer { get; set; }
+
+        public Riddle()
+        {
+                
+        }
     }
 }

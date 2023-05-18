@@ -1,4 +1,4 @@
-﻿namespace DotNetWebApp.Controllers
+﻿namespace DotNetWebApp.Models
 {
     internal class ErrorViewModel
     {

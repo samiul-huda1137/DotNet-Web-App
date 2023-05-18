@@ -1,6 +1,7 @@
-using DotNetWebApp.Data;
+﻿using DotNetWebApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<DotNetWebAppContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DotNetWebAppContext") ?? throw new InvalidOperationException("Connection string 'DotNetWebAppContext' not found.")));
 
 var app = builder.Build();
 
