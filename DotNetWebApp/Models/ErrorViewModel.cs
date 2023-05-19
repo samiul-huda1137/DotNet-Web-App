@@ -1,7 +1,9 @@
-﻿namespace DotNetWebApp.Models
+namespace DotNetWebApp.Models
 {
-    internal class ErrorViewModel
+    public class ErrorViewModel
     {
-        public string HttpRequestIdentifierFeature { get; set; }
+        public string? RequestId { get; set; }
+
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }

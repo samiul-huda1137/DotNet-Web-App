@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DotNetWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Text.Encodings.Web;
-using Microsoft.AspNetCore.Http.Features;
-using DotNetWebApp.Models;
-
+using System.Diagnostics;
 
 namespace DotNetWebApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -29,10 +22,11 @@ namespace DotNetWebApp.Controllers
         {
             return View();
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { HttpRequestIdentifierFeature = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
